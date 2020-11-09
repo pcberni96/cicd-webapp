@@ -2,7 +2,7 @@
 - name: Clone repo
   hosts: all 
   
-  task:
+  tasks:
     - name: Clone Repo
       git:
         repo: 'https://github.com/pcberni96/cicd-webapp.git'
