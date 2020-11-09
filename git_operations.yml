@@ -3,9 +3,9 @@
   hosts: all 
   
   task:
-  - name: Clone Repo
-    git:
-      repo: 'https://github.com/pcberni96/cicd-webapp.git'
-      dest: "/git-webapp" 
-      clone: yes 
+    - name: Clone Repo
+      git:
+        repo: 'https://github.com/pcberni96/cicd-webapp.git'
+        dest: "/git-webapp" 
+        clone: yes 
     
