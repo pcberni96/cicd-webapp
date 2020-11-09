@@ -12,8 +12,8 @@
   - name: Login into Red Hat Registry 
     docker_login:
       registry: redhat.registry.io 
-      username: pcberni96
-      password: Paulo+0507
+      username: pbernal@compusoluciones.com
+      password: Alejandra+240496
       email: pbernal@compusoluciones.com
 
   - name: Build an Docker Image
