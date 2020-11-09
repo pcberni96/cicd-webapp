@@ -1,0 +1,33 @@
+---
+- name: Build and Deploy an Docker Container
+  hosts: all 
+
+  vars:
+    image_container: webapp-http
+    name_container:  container-webapp-http
+    num_of_container: 1 
+
+  pre_tasks:
+
+  - name: Login into Red Hat Registry 
+    docker_login:
+      registry: redhat.registry.io 
+      username: pcberni96
+      password: Paulo+0507
+      email: pbernal@compusoluciones.com
+
+  - name: Build an Docker Image
+    docker_image:
+      build:
+        path: ./git-webapp
+      name: "{{ image_container }}"
+      source: build
+
+  tasks:
+
+  - name: Build Container from Image
+    docker_container:
+      name: "{{ name_container }}{{ item }}"
+      image: "{{ image_container }}"
+      state: started
+    with_sequence: count="{{ num_of_container }}"
