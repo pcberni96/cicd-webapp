@@ -19,7 +19,7 @@
   - name: Build an Docker Image
     docker_image:
       build:
-        path: ./cicd-webapp
+        path: /git-webapp/cicd-webapp
       name: "{{ image_container }}"
       source: build
 
