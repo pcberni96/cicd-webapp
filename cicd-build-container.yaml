@@ -1,12 +1,7 @@
 ---
 - name: Build and Deploy an Docker Container
   hosts: all 
-
-  vars:
-    image_container: webapp-http
-    name_container:  container-webapp-http
-    num_of_container: 1 
-
+  
   pre_tasks:
 
   - name: Login into Red Hat Registry 
@@ -30,6 +25,4 @@
       name: "{{ name_container }}{{ item }}"
       image: "{{ image_container }}"
       state: started
-      ports:
-      - "8080:8080"
     with_sequence: count="{{ num_of_container }}"
