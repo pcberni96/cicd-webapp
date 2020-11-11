@@ -1,0 +1,19 @@
+---
+- name: Kill, Stop and Remove webapp
+  hosts: all
+  
+  tasks:
+  
+  - name: Kill Container
+    docker_container:
+      name: "{{ name_container }}{{ item }}"
+      state: stopped
+      with_sequence: count="{{ num_of_container }}"
+  
+  - name: Remove Container
+    docker_container:
+      name: "{{ name_container }}{{ item }}"
+      state: absent
+      with_sequence: count="{{ num_of_container }}"
+         
+  
