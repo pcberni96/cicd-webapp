@@ -7,9 +7,9 @@
   - name: Login into Red Hat Registry 
     docker_login:
       registry: registry.redhat.io
-      username: pbernal@compusoluciones.com
-      password: Alejandra+240496
-      email: pbernal@compusoluciones.com
+      username: "{{ registryusername }}"
+      password: "{{ registrypasswd }}"
+      email: "{{ registryemail }}"
 
   - name: Build an Docker Image
     docker_image:
