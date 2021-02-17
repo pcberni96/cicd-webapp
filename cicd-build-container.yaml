@@ -25,4 +25,6 @@
       name: "{{ name_container }}{{ item }}"
       image: "{{ image_container }}"
       state: started
+      ports:
+       - "8080:808{{ item }}"
     with_sequence: count="{{ num_of_container }}"
